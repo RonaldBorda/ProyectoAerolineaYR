@@ -6,7 +6,7 @@
 <style type="text/css">
 	.contenedor {
 		width:35%;
-		height:270px;
+		height:470px;
 		background:#ECEBEA ;
 		border-radius:10px;
 	}
@@ -25,21 +25,24 @@
 	<div class="contenedor">
 		<h1 style="text-align: center;" th:text="${titulo}"></h1><br>
 		<div class="container">
-			<form th:action="@{/aerolineas/guardar}" th:object="${aerolinea}" method="POST">
+			<form th:action="@{/destinos/guardar}" th:object="${destino}" method="POST">
 				<table>
 					<tr>
 						<!--Anotar-->
 						<input type="hidden" th:field="*{id}">
-						<td for="nombre">Nombre:</td>
-						<td><input th:field="*{nombre}" id="nombre" class="form-control" type="text" name=""></td>
+						<td for="departamento">Departamento:</td>
+						<td><input th:field="*{departamento}" class="form-control" type="text" name=""></td>
 					</tr>
 					<tr>
-						<td for="clasificacion">Clasificación: </td>
+						<td for="aeropuerto">Aeropuerto:</td>
+						<td><input th:field="*{aeropuerto}" class="form-control" type="text" name=""></td>					
+					</tr>
+					<tr>
+						<td for="clasificacion">Aerolinea:</td>
 						<td>
-							<select th:field="*{clasificacion}" class="form-select" id="inputGroupSelect01">
-								<option value="Aerolinea regional">Aerolinea regional</option>
-								<option value="Aerolinea de red">Aerolinea de red</option>
-								<option value="Aerolinea de gran escala">Aerolinea de gran escala</option>
+							<select th:field="*{aerolinea}" class="form-select" id="inputGroupSelect01">
+								<option value="6">6</option>
+								
 							</select>
 						</td>
 					</tr>

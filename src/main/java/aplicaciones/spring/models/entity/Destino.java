@@ -3,19 +3,20 @@ package aplicaciones.spring.models.entity;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Table(name="destino")
+
+@Entity
 public class Destino implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="codigo_des")
 	private long id;
-	private String departamiento;
+	private String departamento;
 	private String aeropuerto;
 	@Column(name="codigo_aer")
 	private String aerolinea;
@@ -25,11 +26,11 @@ public class Destino implements Serializable{
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getDepartamiento() {
-		return departamiento;
+	public String getDepartamento() {
+		return departamento;
 	}
-	public void setDepartamiento(String departamiento) {
-		this.departamiento = departamiento;
+	public void setDepartamento(String departamento) {
+		this.departamento = departamento;
 	}
 	public String getAeropuerto() {
 		return aeropuerto;
@@ -45,7 +46,7 @@ public class Destino implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "Destino [id=" + id + ", departamiento=" + departamiento + ", aeropuerto=" + aeropuerto + ", aerolinea="
+		return "Destino [id=" + id + ", departamento=" + departamento + ", aeropuerto=" + aeropuerto + ", aerolinea="
 				+ aerolinea + "]";
 	}
 	
