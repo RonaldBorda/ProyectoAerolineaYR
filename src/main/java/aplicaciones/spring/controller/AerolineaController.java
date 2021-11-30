@@ -22,7 +22,7 @@ public class AerolineaController {
 	@GetMapping("/listar")
 	public String listarAerolinea(Model model) {
 		List<Aerolinea> listadoAerolineas = aerolineaService.listarTodos();
-		model.addAttribute("titulo","Aerolinas");
+		model.addAttribute("titulo","Aerolineas");
 		model.addAttribute("aerolineas",listadoAerolineas);
 		return "listarAerolineas";
 	}
