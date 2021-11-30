@@ -25,9 +25,11 @@
 	<div class="contenedor">
 		<h1 style="text-align: center;" th:text="${titulo}"></h1><br>
 		<div class="container">
-			<form th:object="${aerolinea}">
+			<form th:action="@{/aerolineas/guardar}" th:object="${aerolinea}" method="POST">
 				<table>
 					<tr>
+						<!--Anotar-->
+						<input type="hidden" th:field="*{id}">
 						<td for="nombre">Nombre: </td>
 						<td><input th:field="*{nombre}" id="nombre" class="form-control" type="text" name=""></td>
 					</tr>
@@ -35,16 +37,16 @@
 						<td for="clasificacion">Clasificación: </td>
 						<td>
 							<select th:field="*{clasificacion}" class="form-select" id="inputGroupSelect01">
-								<option value="1">Aerolinea regional</option>
-								<option value="2">Aerolinea de red</option>
-								<option value="3">Aerolinea de gran escala</option>
+								<option value="Aerolinea regional">Aerolinea regional</option>
+								<option value="Aerolinea de red">Aerolinea de red</option>
+								<option value="Aerolinea de gran escala">Aerolinea de gran escala</option>
 							</select>
 						</td>
 					</tr>
 					<tr>
 						<td  colspan="2">
 							<hr>
-							<center><button class="btn btn-primary" type="submit">Registrar</button></center>
+							<center><button class="btn btn-primary" type="submit">Guardar</button></center>
 						</td>
 					</tr>
 				</table>
