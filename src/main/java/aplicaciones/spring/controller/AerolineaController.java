@@ -16,15 +16,19 @@ import aplicaciones.spring.models.service.IAerolineaService;
 public class AerolineaController {
 	@Autowired
 	private IAerolineaService aerolineaService;
-	@GetMapping("/")
+	@GetMapping("/listar")
 	public String listarAerolinea(Model model) {
 		List<Aerolinea> listadoAerolineas = aerolineaService.listarTodos();
 		model.addAttribute("titulo","Aerolinas");
 		model.addAttribute("aerolineas",listadoAerolineas);
 		return "listarAerolineas";
 	}
-	@GetMapping("/pruebas")
-	public String crear() {
-		return "listarAerolineas";
+	@GetMapping("/registrar")
+	public String crear(Model model) {
+		Aerolinea aerolinea = new Aerolinea();
+		model.addAttribute("titulo", "Registrar nueva Aerolinea");
+		model.addAttribute("aerolinea", aerolinea);
+		
+		return "formAerolinea";
 	}
 }

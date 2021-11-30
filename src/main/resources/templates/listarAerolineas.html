@@ -35,6 +35,7 @@
 					<tr>
 						<th scope="col">CODIGO</th>
 						<th scope="col">NOMBRE</th>
+						<th scope="col">CLASIFICAIÓN</th>
 						<th colspan="2" style="text-align:center ;" scope="col">ACCIONES</th>
 					</tr>
 				</thead>
@@ -42,6 +43,7 @@
 					<tr th:each="cl:${aerolineas}">
 						<td th:text="${cl.id}"></td>
 						<td th:text="${cl.nombre}"></td>
+						<td th:text="${cl.clasificacion}"></td>
 						<td>
 							<a href="" class="btn btn-success">
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

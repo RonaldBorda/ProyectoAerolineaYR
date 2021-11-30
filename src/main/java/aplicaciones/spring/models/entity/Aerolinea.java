@@ -19,6 +19,15 @@ public class Aerolinea implements Serializable{
 	private long id;
 	@Column(name="nombre_aer")
 	private String nombre;
+	@Column(name="CLASIFICACION")
+	private String clasificacion;
+	
+	public String getClasificacion() {
+		return clasificacion;
+	}
+	public void setClasificacion(String clasificacion) {
+		this.clasificacion = clasificacion;
+	}
 	public long getId() {
 		return id;
 	}
@@ -33,8 +42,9 @@ public class Aerolinea implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "Aerolinea [id=" + id + ", nombre=" + nombre + "]";
+		return "Aerolinea [id=" + id + ", nombre=" + nombre + ", clasificacion=" + clasificacion + "]";
 	}
+	
 	
 	
 }
