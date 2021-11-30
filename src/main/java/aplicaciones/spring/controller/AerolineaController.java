@@ -23,7 +23,7 @@ public class AerolineaController {
 		model.addAttribute("aerolineas",listadoAerolineas);
 		return "listarAerolineas";
 	}
-	@GetMapping("/prueba")
+	@GetMapping("/pruebas")
 	public String crear() {
 		return "listarAerolineas";
 	}
