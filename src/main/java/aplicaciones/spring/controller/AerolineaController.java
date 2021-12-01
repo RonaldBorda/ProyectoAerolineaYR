@@ -46,9 +46,13 @@ public class AerolineaController {
 		return "formAerolinea";
 	}
 	@GetMapping("/eliminar/{id}")
-	public String eliminar(@PathVariable("id") Long idAerolinea) {
-		aerolineaService.eliminar(idAerolinea);
-		return "redirect:/aerolineas/listar";
+	public String eliminar(@PathVariable("id") Long idAerolinea, Model model) {
+		try {
+			aerolineaService.eliminar(idAerolinea);
+			return "redirect:/aerolineas/listar";		
+		} catch(Exception e) {
+			return "redirect:/aerolineas/listar";	
+		}
 	}
 	
 }

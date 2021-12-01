@@ -34,7 +34,6 @@ public class DestinoController {
 	}
 	@GetMapping("/registrar")
 	public String crear(Model model) {
-		
 		List<Aerolinea> listaAerolineas = aerolineService.listarTodos();
 		Destino destino = new Destino();
 		model.addAttribute("titulo", "Registrar nuevo Destino");
@@ -49,6 +48,9 @@ public class DestinoController {
 	}
 	@GetMapping("/editar/{id}")
 	public String editar(@PathVariable("id") Long idDestino, Model model) {
+		List<Aerolinea> listaAerolineas = aerolineService.listarTodos();
+		model.addAttribute("aerolineas", listaAerolineas);
+		
 		Destino destino = destinoService.buscarPorId(idDestino);
 		model.addAttribute("titulo", "Editar Destino");
 		model.addAttribute("destino", destino);
@@ -56,7 +58,11 @@ public class DestinoController {
 	}
 	@GetMapping("/eliminar/{id}")
 	public String eliminar(@PathVariable("id") Long idDestino) {
-		destinoService.eliminar(idDestino);
-		return "redirect:/destinos/listar";
+		try {
+			destinoService.eliminar(idDestino);
+			return "redirect:/destinos/listar";
+		} catch(Exception e) {
+			return "redirect:/destinos/listar";
+		}
 	}
 }
