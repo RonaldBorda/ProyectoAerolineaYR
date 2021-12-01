@@ -6,7 +6,7 @@
 <style type="text/css">
 	.contenedor {
 		width:35%;
-		height:470px;
+		height:300px;
 		background:#ECEBEA ;
 		border-radius:10px;
 	}
@@ -38,11 +38,13 @@
 						<td><input th:field="*{aeropuerto}" class="form-control" type="text" name=""></td>					
 					</tr>
 					<tr>
-						<td for="clasificacion">Aerolinea:</td>
+						<td for="Aerolinea">Aerolinea:</td>
 						<td>
 							<select th:field="*{aerolinea}" class="form-select" id="inputGroupSelect01">
-								<option value="6">6</option>
-								
+								<option th:each="aerolinea:${aerolineas}"
+									th:value="${aerolinea.id}"
+									th:text="${aerolinea.nombre}"
+								/>
 							</select>
 						</td>
 					</tr>

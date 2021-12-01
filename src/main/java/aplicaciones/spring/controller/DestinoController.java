@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import aplicaciones.spring.models.entity.Aerolinea;
 import aplicaciones.spring.models.entity.Destino;
+import aplicaciones.spring.models.service.IAerolineaService;
 import aplicaciones.spring.models.service.IDestinoService;
 
 @Controller
@@ -18,6 +21,10 @@ import aplicaciones.spring.models.service.IDestinoService;
 public class DestinoController {
 	@Autowired
 	private IDestinoService destinoService;
+	
+	@Autowired
+	private IAerolineaService aerolineService;
+	
 	@GetMapping("/listar")
 	public String listarDestinos(Model model) {
 		List<Destino> listadoDestinos = destinoService.listarTodos();
@@ -27,9 +34,12 @@ public class DestinoController {
 	}
 	@GetMapping("/registrar")
 	public String crear(Model model) {
+		
+		List<Aerolinea> listaAerolineas = aerolineService.listarTodos();
 		Destino destino = new Destino();
 		model.addAttribute("titulo", "Registrar nuevo Destino");
 		model.addAttribute("destino", destino);
+		model.addAttribute("aerolineas", listaAerolineas);
 		return "formDestino";
 	}
 	@PostMapping("/guardar")
